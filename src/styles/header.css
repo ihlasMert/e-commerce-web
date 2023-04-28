@@ -1,20 +1,19 @@
 .container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
-.nav__rights {
+.nav__right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 3;
+  gap: 0.5%;
 }
 
 .navigation > .menu {
   display: flex;
   text-decoration: none;
-  gap: 30px;
+  gap: 10px;
 }
 
 header {
@@ -22,6 +21,7 @@ header {
   height: 10vh;
   line-height: 80px;
   background-color: #f6770d;
+  border-bottom: 2px solid black;
 }
 .logo > h5 {
   text-align: center;
@@ -32,3 +32,125 @@ header {
   margin-top: -10px;
 }
 
+.menu a {
+  font-weight: 600;
+  font-size: 1rem;
+  color: black;
+  transition: 1.5s;
+}
+.menu a:hover {
+  color: #f6770d;
+  text-decoration: underline;
+}
+.active__menu {
+  color: #fff !important;
+}
+
+.cart__icon i,
+.user i,
+.mobile__menu {
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.nav__rights {
+  display: flex;
+  gap: 2.9rem;
+  color: #fff;
+}
+
+.cart__icon {
+  position: relative;
+}
+.rights {
+  display: flex;
+  gap: 10px;
+  color: #fff;
+}
+#id {
+  color: #fff;
+}
+
+.cart__badge {
+  position: absolute;
+  top: 19px;
+  right: -5px;
+  color: #fff;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile__menu {
+  font-weight: 600;
+  display: none;
+}
+
+.header__shrink {
+  position: sticky;
+  top: 0;
+  left: 0;
+  box-shadow: 5px 5px 15px -5px #131313;
+}
+
+@media only screen and (max-width: 992px) {
+  .logo > h5 {
+    width: calc(100% - 70%);
+  }
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.534);
+    z-index: 99;
+    color: black;
+    display: none;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    width: 250px;
+    background-color: #fff;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    line-height: 200px;
+  }
+  .menu a {
+    font-size: 0.9rem;
+  }
+  .mobile__menu {
+    display: block;
+  }
+  .cart__icon i,
+  .user i,
+  .mobile__menu i {
+    font-size: 1rem;
+  }
+  .show__menu {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+  }
+  .logo > h5 {
+    margin-top: 0px;
+  }
+}

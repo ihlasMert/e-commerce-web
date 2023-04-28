@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import { NavLink, Link } from "react-router-dom"
 import "../../styles/header.css"
 
@@ -26,6 +26,8 @@ const nav__links = [
 ]
 
 const Header = () => {
+  const menuRef = useRef(null)
+  const toggleMenu = () => menuRef.current.classList.toggle("show__menu")
   return (
     <header>
       <div className='container'>
@@ -35,10 +37,17 @@ const Header = () => {
           <h6></h6>
         </div>
         {/*--------  menu------ */}
-        <div className='navigation'>
+        <div className='navigation' ref={menuRef}>
           <div className='menu'>
             {nav__links.map((item, index) => (
-              <NavLink to={item.path} key={index}>
+              <NavLink
+                onClick={toggleMenu}
+                to={item.path}
+                key={index}
+                className={(navClass) =>
+                  navClass.isActive ? "active__menu" : ""
+                }
+              >
                 {item.display}
               </NavLink>
             ))}
@@ -46,20 +55,20 @@ const Header = () => {
         </div>
 
         {/* nav right icons */}
-        <div className='nav__rights'>
+        <div className='nav__right rights'>
           <span className='cart__icon'>
-            <FiShoppingCart />
+            <FiShoppingCart className='i' />
             <span className='cart__badge'>2</span>
           </span>
 
           <span className='user'>
             <Link to='/login'>
-              <BiUser />
+              <BiUser className='i' id='id' />
             </Link>
           </span>
 
-          <span className='mobile__menu'>
-            <AiOutlineMenu />
+          <span className='mobile__menu' onClick={toggleMenu}>
+            <AiOutlineMenu className='i' />
           </span>
         </div>
       </div>
